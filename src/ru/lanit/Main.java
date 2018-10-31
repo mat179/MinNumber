@@ -19,7 +19,7 @@ public class Main {
     public static void minNumberRandom(){
         Random random = new Random();
         int count = random.nextInt(1000000);
-        boolean[] arr = new boolean[1000001];/*Set<Integer> set =*/
+        boolean[] arr = new boolean[1000001];
         random.ints(-1000000000,1000000000)
                 .limit(count)
                 .filter(x -> (x>0)&&(x<=1000000))
@@ -31,7 +31,7 @@ public class Main {
 
 
     public static void  minNumberFromFile(File f){
-        try (Scanner sc = new Scanner(new FileReader(f))/*BufferedReader reader = new BufferedReader(new FileReader(f))*/) {
+        try (Scanner sc = new Scanner(new FileReader(f))) {
             List<Integer> list = new LinkedList<>();
             if (!f.exists())
                 throw new FileNotFoundException();
@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    public static int getMinFromArray(boolean[] arr){
+    private static int getMinFromArray(boolean[] arr){
         for (int i = 1; i<arr.length; i++) {
             if (!arr[i]){
                 return i;
@@ -70,7 +70,7 @@ public class Main {
             int count =random.nextInt(1000000);
             random.ints(-1000000000,1000000000)
                     .limit(count)
-                    .forEach(x -> builder.append(x+" "));
+                    .forEach(x -> builder.append(x).append(" "));
             writer.append(builder);
             writer.flush();
 
